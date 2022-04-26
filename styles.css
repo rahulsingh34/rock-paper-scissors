@@ -1,0 +1,75 @@
+* {
+	font-family: monospace;
+	background-color: #2E3033;
+	color: white;
+	text-align: center;
+}
+
+.preface {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+
+.preface-text{
+	width: 60%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin-bottom: 40px;
+}
+
+#preface-story, #prompt {
+	font-size: 35px;
+	font-weight: 700;
+}
+
+#prompt {
+	overflow: hidden; /* Ensures the content is not revealed until the animation */
+	border-right: .15em solid white; /* The typwriter cursor */
+	white-space: nowrap; /* Keeps the content on a single line */
+	margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+	letter-spacing: .15em; /* Adjust as needed */
+	animation: 
+	  typing 3.5s steps(40, end),
+	  blink-caret .75s step-end infinite;
+  }
+  
+  /* The typing effect */
+  @keyframes typing {
+	from { width: 0 }
+	to { width: 100% }
+  }
+  
+  /* The typewriter cursor effect */
+  @keyframes blink-caret {
+	from, to { border-color: transparent }
+	50% { border-color: white; }
+  }
+
+.preface-button {
+	border-radius: 10px;
+	transition-duration: 0.4s;
+	width: 200px;
+	height: 40px;
+	background-color: #64676E;
+	font-size: 15px;
+	border: none;
+}	
+
+.preface-button:hover {
+	background-color: darkred;
+	font-weight: bold;
+	transform: scale(1.1);
+}
+
+a {
+	text-decoration: none;
+	background-color: transparent;
+}
