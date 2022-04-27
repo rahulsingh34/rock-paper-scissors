@@ -7,15 +7,17 @@ function computerPlay() {
     return textArray[randomNumber];
 }
 
-//For keeping score
+//For keeping score and displaying winner
 let playerScore = 0;
 let computerScore = 0;
+let roundWinner = "";
 let pScore = document.getElementById('player-score');
 let cScore = document.getElementById('computer-score');
 let winner = document.getElementById('winner');
+let roundOutcome = document.getElementById('round-winner');
 
 //To clear game
-const myTimeout = setInterval(clearGame, 7500);
+const myTimeout = setInterval(clearGame, 10000);
 
 //Function for playing a single round and deciding who won
 function playRound(playerSelection, computerSelection) {
@@ -24,30 +26,30 @@ function playRound(playerSelection, computerSelection) {
 
     if (playerSelection === 'Rock' && computerSelection === 'Scissors') {
 		playerScore++;
-        return "You Win! " + playerSelection + " beats " + computerSelection;
+        roundWinner = "You Win! " + playerSelection + " beats " + computerSelection;
     }
     else if (playerSelection === 'Paper' && computerSelection === 'Rock') {
 		playerScore++;
-        return "You Win! " + playerSelection + " beats " + computerSelection; 
-    }
+		roundWinner = "You Win! " + playerSelection + " beats " + computerSelection;
+	}
     else if (playerSelection === 'Scissors' && computerSelection === 'Paper') {
 		playerScore++;
-        return "You Win! " + playerSelection + " beats " + computerSelection;
+        roundWinner = "You Win! " + playerSelection + " beats " + computerSelection;
     }
     else if (playerSelection === 'Rock' && computerSelection === 'Paper') {
 		computerScore++;
-        return "You Lose! " + computerSelection + " beats " + playerSelection;
+        roundWinner = "You Lose! " + computerSelection + " beats " + playerSelection;
     }
     else if (playerSelection === 'Paper' && computerSelection === 'Scissors') {
 		computerScore++;
-        return "You Lose! " + computerSelection + " beats " + playerSelection; 
+        roundWinner = "You Lose! " + computerSelection + " beats " + playerSelection;
     }
     else if (playerSelection === 'Scissors' && computerSelection === 'Rock') {
 		computerScore++;
-        return "You Lose! " + computerSelection + " beats " + playerSelection;
+        roundWinner = "You Lose! " + computerSelection + " beats " + playerSelection;
     }
     else {
-        return "It's a draw!";
+        roundWinner = "It's a draw!";
     }
 }
 
@@ -64,6 +66,7 @@ btns.forEach((btn) => {
 		console.log(playRound(btn.id, computerPlay()));
 		pScore.innerText = playerScore;
 		cScore.innerText = computerScore;
+		roundOutcome.innerText = roundWinner;
 
 		if (pScore.innerText == '5') {
 			winner.innerText = "You Win! Karen has been defeated!";
@@ -82,4 +85,5 @@ function clearGame() {
 	pScore.innerText = 0;
 	cScore.innerText = 0;
 	winner.innerText = " ";
+	roundOutcome.innerText = " ";
 }

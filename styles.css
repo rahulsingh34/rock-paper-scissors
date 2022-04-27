@@ -5,16 +5,23 @@
 	text-align: center;
 }
 
-.preface {
+.preface, .container{
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	flex-direction: column;
 	position: fixed;
     width: 100%;
     height: 100%;
     left: 0;
     top: 0;
+}
+
+.preface {
+	flex-direction: column;
+}
+
+.container {
+	flex-direction: row;
 }
 
 .preface-text{
@@ -64,12 +71,61 @@
 }	
 
 .preface-button:hover {
-	background-color: darkred;
-	font-weight: bold;
+	background-color: green;
 	transform: scale(1.1);
 }
 
 a {
 	text-decoration: none;
 	background-color: transparent;
+}
+
+.player, .computer {
+	margin: 30px;
+	height: 30%;
+	width: 30%;
+}
+.game-selection {
+	height: 50%;
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+#player-score, #computer-score {
+	font-size: 45px;
+}
+
+#rock, #paper, #scissors {
+	height: 250px;
+	width: 250px;
+	border-radius: 10px;
+	background-color: #64676E;
+	font-size: 15px;
+	border: none;
+	margin: 5px;
+	transition-duration: 0.4s;
+}
+
+#rock:hover, #paper:hover, #scissors:hover {
+	background-color: green;
+	font-weight: bold;
+	font-size: 20px;
+	transform: scale(1.05);
+}
+
+.game-over {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	font-size: 25px;
+}
+
+.round {
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+	font-size: 20px;
 }
